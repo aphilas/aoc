@@ -9,6 +9,7 @@ import (
 	"github.com/aphilas/aoc2022/day2"
 	"github.com/aphilas/aoc2022/day3"
 	"github.com/aphilas/aoc2022/day4"
+	"github.com/aphilas/aoc2022/day5"
 
 	"github.com/urfave/cli/v2"
 )
@@ -74,6 +75,19 @@ func solutions() {
 	f4.Seek(0, 0)
 	fmt.Println(day4.PartialOverlaps(f4))
 	fmt.Println()
+
+	// Day 5
+
+	fmt.Println("day 5:")
+	f5, err := os.Open("./day5/input.txt")
+	if err != nil {
+		log.Fatalf("could not open input: %s", err)
+	}
+	defer f5.Close()
+
+	fmt.Println(day5.MoveCratesSingly(f5, 9, 8))
+	f5.Seek(0, 0)
+	fmt.Println(day5.MoveCratesGrouped(f5, 9, 8))
 }
 
 func cmd() *cli.App {
