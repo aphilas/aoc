@@ -11,6 +11,7 @@ import (
 	"github.com/aphilas/aoc2022/day4"
 	"github.com/aphilas/aoc2022/day5"
 	"github.com/aphilas/aoc2022/day6"
+	"github.com/aphilas/aoc2022/day7"
 
 	"github.com/urfave/cli/v2"
 )
@@ -102,6 +103,21 @@ func solutions() {
 
 	fmt.Println(day6.PacketMarker(f6))
 	fmt.Println(day6.MessageMarker(f6))
+	fmt.Println()
+
+	// Day 7
+
+	fmt.Println("day 7:")
+	f7, err := os.Open("./day7/input.txt")
+	if err != nil {
+		log.Fatalf("could not open input: %s", err)
+	}
+	defer f7.Close()
+
+	fmt.Println(day7.SpaceSaver(f7))
+	// f7.Seek(0, 0)
+	// fmt.Println(day7.MoveCratesGrouped(f7, 9, 8))
+	// fmt.Println()
 }
 
 func cmd() *cli.App {
